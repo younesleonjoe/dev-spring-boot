@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/processStudentForm}" th:object="${student}" method="POST">
+    <label for="student-firstname">Firstname: </label>
+    <!-- *{firstName} is a shortcut for ${student.firstName} -->
+    <input id="student-firstname" type="text" th:field="*{firstName}">
+    <br>
+    <br>
+    <label for="student-lastname">Lastname: </label>
+    <input id="student-lastname" type="text" th:field="*{lastName}">
+    <br>
+    <br>
+    <label for="student-country">Country</label>
+    <select id="student-country" th:field="*{country}" multiple>
+        <option th:each="country : ${countries}" th:value="${country}" th:text="${country}">
+    </select>
+<!--    <select id="student-country" th:field="*{country}" multiple size="5">-->
+<!--        <option th:value="Brazil">Brazil</option>-->
+<!--        <option th:value="France">France</option>-->
+<!--        <option th:value="Germany">Germany</option>-->
+<!--        <option th:value="India">India</option>-->
+<!--    </select>-->
+    <br>
+    <br>
+
+
+    <div style="display: flex;">
+        Favorite Programming Language:&nbsp;&nbsp;&nbsp;&nbsp;
+        <div th:each="language : ${languages}">
+            <label th:for="'favorite-language-' + ${language}"><span th:text="${language}"></span></label>
+            <input th:id="'favorite-language-' + ${language}" type="radio" th:field="*{favoriteLanguage}" th:value="${language}">
+        </div>
+    </div>
+
+    <div style="display: flex;">
+        Favorite operating Systems:
+        <div th:each="system : ${systems}">
+            <label th:for="'favorite-system-' + ${system}"><span th:text="${system}"></span></label>
+            <input th:id="'favorite-system-' + ${system}" type="checkbox" th:field="*{favoriteSystems}" th:value="${system}">
+        </div>
+    </div>
+<!--    <label for="favorite-language-go">Go</label>-->
+<!--    <input id="favorite-language-go" type="radio" th:field="*{favoriteLanguage}" th:value="Go">-->
+<!--    <label for="favorite-language-java">Java</label>-->
+<!--    <input id="favorite-language-java" type="radio" th:field="*{favoriteLanguage}" th:value="Java">-->
+<!--    <label for="favorite-language-python">Python</label>-->
+<!--    <input id="favorite-language-python" type="radio" th:field="*{favoriteLanguage}" th:value="Python">-->
+
+    <br>
+    <br>
+    <input type="submit" value="Submit">
+</form>
+</body>
+</html>

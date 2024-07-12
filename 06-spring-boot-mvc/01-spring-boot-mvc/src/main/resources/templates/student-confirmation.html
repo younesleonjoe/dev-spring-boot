@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Confirmation</title>
+</head>
+<body>
+    The student is confirmed: <span th:text="${student.firstName} + ' ' + ${student.lastName}"></span>
+    <br>
+    Countries: <span th:text="${student.getListCountry()}"></span>
+    <br>
+    Favorite Language: <span th:text="${student.favoriteLanguage}"></span>
+    <br>
+    Favorite Operating Systems:
+    <ul>
+        <li th:each="system : ${student.favoriteSystems}" th:text="${system}"></li>
+    </ul>
+</body>
+</html>

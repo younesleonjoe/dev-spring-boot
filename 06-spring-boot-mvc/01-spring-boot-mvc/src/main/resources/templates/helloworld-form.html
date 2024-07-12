@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello World - Input Form</title>
+</head>
+<body>
+    <form th:action="@{/processFormVersionTwo}" method="GET">
+        <label for="input-name">Name</label>
+        <input id="input-name" type="text" name="name" placeholder="What's your name?" />
+        <input type="submit"/>
+    </form>
+</body>
+</html>
